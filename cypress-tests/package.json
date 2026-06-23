@@ -1,0 +1,14 @@
+{
+  "name": "cypress-tests",
+  "version": "1.0.0",
+  "description": "Testes E2E em Cypress baseados nos cenarios existentes em Playwright.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^15.4.0"
+  }
+}

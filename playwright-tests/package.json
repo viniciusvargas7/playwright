@@ -1,9 +1,11 @@
 {
-  "name": "playwright",
+  "name": "playwright-tests",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "description": "Testes E2E em Playwright para o Sauce Demo.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/viniciusvargas7/playwright.git"
