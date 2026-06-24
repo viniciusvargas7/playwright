@@ -3,9 +3,23 @@
         "usuario": "standard_user",
         "senha": "secret_sauce" 
     },
-    "usuarioBloqueado": {
-        "usuario": "locked_out_user",
-        "senha": "secret_sauce" 
+    "dadosNovoUsuario": {
+        "nome": "Testonildo",
+        "sobrenome": "Silva",
+        "email": "teste@qa.com.br",
+        "pronome": "Mr.",
+        "senha": "Senh@1234",
+        "dia": "1",
+        "mes": "March",
+        "ano": "2003",
+        "logradouro": "Rua Teste",
+        "numero": "123",
+        "cidade": "Vila Velha",
+        "estado": "Espírito Santo",
+        "cep": "29119332",
+        "complemento": "Ap 2222",
+        "pais": "Canada",
+        "telefone": "27999999999"
     },
     "usuarioIncorreto": {
         "usuario": "standard_user",
