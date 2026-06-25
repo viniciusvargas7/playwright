@@ -9,7 +9,7 @@ const filePath = path.join(__dirname, '..', 'fixtures', 'dados.json');
 const fileData = fs.readFileSync(filePath, 'utf8');
 const dadosLogin = JSON.parse(fileData);
 
-test('Deve cadastrar novo usuário', async ({page}) => {
+test('Deve cadastrar novo usuário e em seguida deleta-lo', async ({page}) => {
   const paginaLogin = new PaginaLogin(page);
   const paginaCadastro = new PaginaCadastro(page);
   const dadosNovoUsuario = dadosLogin.dadosNovoUsuario;
@@ -21,6 +21,8 @@ test('Deve cadastrar novo usuário', async ({page}) => {
   await paginaCadastro.preencheDadosCadastro(dadosNovoUsuario);
   await expect(page).toHaveURL('account_created');
   await expect(page.getByText('Account Created!')).toBeVisible();
+  await paginaCadastro.validaLogin(dadosNovoUsuario);
+  await paginaCadastro.deletaConta();
 })
 
 

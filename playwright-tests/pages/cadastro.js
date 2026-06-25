@@ -18,6 +18,8 @@ class PaginaCadastro {
     this.cep = page.getByTestId('zipcode');
     this.telefone = page.getByRole('textbox', {name: 'Mobile Number'});
     this.botaoCadastraUsuario = page.getByRole('button', {name: 'Create Account'})
+    this.botaoContinuarLogin = page.getByRole('link', {name: 'Continue'});
+    this.linkDeletaConta = page.getByRole('link', {name: 'Delete Account'});
   }
 
   radioPronome(labelPronome) {
@@ -41,6 +43,16 @@ class PaginaCadastro {
     await this.cep.fill(dadosCadastro.cep);
     await this.telefone.fill(dadosCadastro.telefone);
     await this.botaoCadastraUsuario.click();
+  }
+
+  async validaLogin(dadosCadastro){
+    await this.botaoContinuarLogin.click();
+    await expect(this.page.getByText(`Logged in as ${dadosCadastro.nome}`)).toBeVisible();
+  }
+
+  async deletaConta(){
+    await this.linkDeletaConta.click();
+    await expect(this.page.getByText(/Account Deleted/)).toBeVisible();
   }
 }
 

@@ -1,4 +1,5 @@
 const { expect } = require("playwright/test");
+const { faker } = require('@faker-js/faker');
 
 class PaginaLogin {
   constructor(page) {
@@ -16,10 +17,9 @@ class PaginaLogin {
   }
 
   async preencheDadosIniciaisCadastro(dadosCadastro){
-    console.log(dadosCadastro.nome)
-    console.log(dadosCadastro.email)
+    const emailAleatorio = faker.internet.email();
     await this.usuarioCadastro.fill(dadosCadastro.nome);
-    await this.emailCadastro.fill(dadosCadastro.email);
+    await this.emailCadastro.fill(emailAleatorio);
     await this.botaoCadastro.click();
   }
 
