@@ -14,6 +14,7 @@ class PaginaLogin {
 
   async acessaPaginaLogin() {
     await this.page.goto('/login');
+    await expect(this.page).toHaveURL('login');
   }
 
   async preencheDadosIniciaisCadastro(dadosCadastro){
@@ -21,12 +22,14 @@ class PaginaLogin {
     await this.usuarioCadastro.fill(dadosCadastro.nome);
     await this.emailCadastro.fill(emailAleatorio);
     await this.botaoCadastro.click();
+    await expect(this.page).toHaveURL('signup');
   }
 
   async realizaLogin(usuario, senha) {
     await this.usuarioLogin.fill(usuario);
     await this.senhaLogin.fill(senha);
     await this.botaoLogin.click();
+    await expect(this.page.getByText('Products')).toBeVisible();
   }
 }
 

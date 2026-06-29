@@ -15,12 +15,8 @@ test('Deve cadastrar novo usuário e em seguida deleta-lo', async ({page}) => {
   const dadosNovoUsuario = dadosLogin.dadosNovoUsuario;
 
   await paginaLogin.acessaPaginaLogin();
-  await expect(page).toHaveURL('login');
   await paginaLogin.preencheDadosIniciaisCadastro(dadosNovoUsuario);
-  await expect(page).toHaveURL('signup');
-  await paginaCadastro.preencheDadosCadastro(dadosNovoUsuario);
-  await expect(page).toHaveURL('account_created');
-  await expect(page.getByText('Account Created!')).toBeVisible();
+  await paginaCadastro.preencheDadosCadastro(dadosNovoUsuario);  
   await paginaCadastro.validaLogin(dadosNovoUsuario);
   await paginaCadastro.deletaConta();
 })
@@ -30,7 +26,6 @@ test('Deve cadastrar novo usuário e em seguida deleta-lo', async ({page}) => {
 test('Deve realizar login com sucesso', async ({ page }) => {
   const paginaLogin = new PaginaLogin(page);
   await paginaLogin.acessaPaginaLogin();
-  await expect(page).toHaveURL('login');
+  //await expect(page).toHaveURL('login');
   await paginaLogin.realizaLogin(dadosLogin.usuarioSucesso.usuario, dadosLogin.usuarioSucesso.senha);
-  await expect(page.getByText('Products')).toBeVisible();
 });

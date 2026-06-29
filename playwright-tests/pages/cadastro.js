@@ -43,6 +43,8 @@ class PaginaCadastro {
     await this.cep.fill(dadosCadastro.cep);
     await this.telefone.fill(dadosCadastro.telefone);
     await this.botaoCadastraUsuario.click();
+    await expect(this.page).toHaveURL('account_created');
+    await expect(this.page.getByText('Account Created!')).toBeVisible();
   }
 
   async validaLogin(dadosCadastro){
